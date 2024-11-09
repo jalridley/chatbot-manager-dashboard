@@ -1,9 +1,12 @@
-import Image from 'next/image';
+import { mockData } from '@/data/mockData';
 
 export default function Home() {
+  console.log(mockData);
   return (
     <div>
-      <main>Dashboard</main>
+      <main>
+        <h1>Dashboard</h1>
+      </main>
     </div>
   );
 }
