@@ -1,4 +1,4 @@
-export interface FileEntry {
+export interface File {
   id: number;
   fileName: string;
   dateModified: string;

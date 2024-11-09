@@ -1,11 +1,11 @@
-import { mockData } from '@/data/mockData';
+import { files } from '@/data/files';
 
 export default function Home() {
   return (
     <div>
       <main className="flex w-full items-center justify-center">
         <div className="w-1/2">
-          {mockData.map((data) => (
+          {files.map((data) => (
             <div className="flex justify-between border" key={data.id}>
               <div>
                 <p>{data.fileName}</p>
