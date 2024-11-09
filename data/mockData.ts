@@ -1,4 +1,6 @@
-export const mockData = [
+import { FileEntry } from '@/types/fileEntry';
+
+export const mockData: FileEntry[] = [
   {
     id: 1,
     fileName: 'AI Influence on User Journey',
