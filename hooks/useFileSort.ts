@@ -20,10 +20,20 @@ export function useFileSort(files: File[]) {
       const aValue = a[sortKey];
       const bValue = b[sortKey];
 
-      if (sortOrder === 'asc') {
-        return aValue > bValue ? 1 : -1;
+      if (sortKey === 'size') {
+        const aSize = parseInt(aValue.replace(' KB', ''), 10);
+        const bSize = parseInt(bValue.replace(' KB', ''), 10);
+
+        if (sortOrder === 'asc') {
+          return aSize - bSize;
+        }
+        return bSize - aSize;
+      } else {
+        if (sortOrder === 'asc') {
+          return aValue > bValue ? 1 : -1;
+        }
+        return aValue < bValue ? 1 : -1;
       }
-      return aValue < bValue ? 1 : -1;
     });
   }, [files, sortKey, sortOrder]);
 
