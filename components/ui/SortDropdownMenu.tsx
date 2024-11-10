@@ -8,19 +8,14 @@ import {
   DropdownMenuCheckboxItem,
 } from '@/components/ui/dropdown-menu';
 import { ChevronDown } from 'lucide-react';
-import { SortKey, SortOrder, SORT_OPTIONS } from '@/hooks/useFileSort';
+import { SortKey, SORT_OPTIONS } from '@/hooks/useFileSort';
 
 type SortDropdownProps = {
   sortKey: SortKey;
-  sortOrder: SortOrder;
   onSort: (key: SortKey) => void;
 };
 
-const SortDropdownMenu = ({
-  sortKey,
-  sortOrder,
-  onSort,
-}: SortDropdownProps) => {
+const SortDropdownMenu = ({ sortKey, onSort }: SortDropdownProps) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="flex items-center gap-2 rounded-md bg-white px-3 py-2 text-sm font-medium shadow">
