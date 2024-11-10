@@ -26,22 +26,18 @@ export default function Home() {
             >
               Toggle View
             </button>
-            <SortDropdownMenu
-              sortKey={sortKey}
-              sortOrder={sortOrder}
-              onSort={toggleSort}
-            />
+            <SortDropdownMenu sortKey={sortKey} onSort={toggleSort} />
           </div>
 
           {view === 'list' ? (
             <FilesList
-              files={sortedFiles}
+              sortedFiles={sortedFiles}
               sortKey={sortKey}
               sortOrder={sortOrder}
               onSort={toggleSort}
             />
           ) : (
-            <FilesGrid files={files} />
+            <FilesGrid sortedFiles={sortedFiles} />
           )}
         </section>
       </main>

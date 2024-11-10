@@ -4,14 +4,19 @@ import { File } from '@/types/file';
 import { SortKey, SortOrder, SORT_OPTIONS } from '@/hooks/useFileSort';
 
 type FilesListProps = {
-  files: File[];
+  sortedFiles: File[];
   sortKey: SortKey;
   sortOrder: SortOrder;
   onSort: (key: SortKey) => void;
 };
 
 // TODO: styling in a table format to show list view of files
-const FilesList = ({ files, sortKey, sortOrder, onSort }: FilesListProps) => {
+const FilesList = ({
+  sortedFiles,
+  sortKey,
+  sortOrder,
+  onSort,
+}: FilesListProps) => {
   return (
     <div className="rounded-lg bg-white shadow">
       <div className="grid grid-cols-4 gap-4 bg-gray-50 px-6 py-3">
@@ -28,7 +33,7 @@ const FilesList = ({ files, sortKey, sortOrder, onSort }: FilesListProps) => {
         ))}
       </div>
       <div className="divide-y divide-gray-200">
-        {files.map((file) => (
+        {sortedFiles.map((file) => (
           <div key={file.id} className="grid grid-cols-4 gap-4 px-6 py-4">
             <div>{file.fileName}</div>
             <div>{file.dateModified}</div>
