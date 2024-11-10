@@ -1,15 +1,14 @@
 import { File } from '@/types/file';
 
-// TODO: styling the grid/icons
-const FilesGrid = ({ files }: { files: File[] }) => {
+const FilesGrid = ({ sortedFiles }: { sortedFiles: File[] }) => {
   return (
-    <div className="grid grid-cols-6 gap-4">
-      {files.map((file) => (
+    <div className="grid grid-cols-5 gap-4">
+      {sortedFiles.map((file) => (
         <div className="border p-4" key={file.id}>
-          <p>{file.fileName}</p>
-          <p>{file.dateModified}</p>
-          <p>{file.size}</p>
-          <p>{file.type}</p>
+          <div>{file.fileName}</div>
+          <div>{file.dateModified}</div>
+          <div>{file.size}</div>
+          <div>{file.type}</div>
         </div>
       ))}
     </div>
