@@ -4,9 +4,11 @@ import { files } from '@/data/files';
 import FilesList from '@/components/FilesList';
 import FilesGrid from '@/components/FilesGrid';
 import { useState } from 'react';
+import { useFileSort } from '@/hooks/useFileSort';
 
 export default function Home() {
   const [view, setView] = useState('list');
+  const { sortedFiles, sortKey, sortOrder, toggleSort } = useFileSort(files);
 
   const toggleView = () => {
     setView(view === 'list' ? 'grid' : 'list');
@@ -23,7 +25,12 @@ export default function Home() {
             Toggle View
           </button>
           {view === 'list' ? (
-            <FilesList files={files} />
+            <FilesList
+              files={sortedFiles}
+              sortKey={sortKey}
+              sortOrder={sortOrder}
+              onSort={toggleSort}
+            />
           ) : (
             <FilesGrid files={files} />
           )}
