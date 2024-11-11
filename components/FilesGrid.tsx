@@ -1,7 +1,8 @@
+'use-client';
+
 import { File } from '@/types/file';
 import { Checkbox } from './ui/checkbox';
 import { Star } from 'lucide-react';
-import { useState } from 'react';
 
 type FilesGridProps = {
   sortedFiles: File[];
