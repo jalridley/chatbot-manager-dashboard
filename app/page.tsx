@@ -42,7 +42,11 @@ export default function Home() {
               isFavorite={isFavorite}
             />
           ) : (
-            <FilesGrid sortedFiles={sortedFiles} />
+            <FilesGrid
+              sortedFiles={sortedFiles}
+              onToggleFavorite={toggleFavorite}
+              isFavorite={isFavorite}
+            />
           )}
         </section>
       </main>
