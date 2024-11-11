@@ -2,7 +2,6 @@ import { File } from '@/types/file';
 import { SortKey, SortOrder, SORT_OPTIONS } from '@/hooks/useFileSort';
 import { Checkbox } from './ui/checkbox';
 import { Star } from 'lucide-react';
-import { useFavorites } from '@/hooks/useFavorites';
 
 type FilesListProps = {
   sortedFiles: File[];
