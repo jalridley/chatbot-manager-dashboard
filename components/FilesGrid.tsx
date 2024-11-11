@@ -3,9 +3,17 @@ import { Checkbox } from './ui/checkbox';
 import { Star } from 'lucide-react';
 import { useState } from 'react';
 
-const FilesGrid = ({ sortedFiles }: { sortedFiles: File[] }) => {
-  const [isFavorite, setIsFavourite] = useState(false);
+type FilesGridProps = {
+  sortedFiles: File[];
+  onToggleFavorite: (id: number) => void;
+  isFavorite: (id: number) => boolean;
+};
 
+const FilesGrid = ({
+  sortedFiles,
+  onToggleFavorite,
+  isFavorite,
+}: FilesGridProps) => {
   return (
     <div className="grid grid-cols-5 gap-4">
       {sortedFiles.map((file) => (
@@ -14,12 +22,12 @@ const FilesGrid = ({ sortedFiles }: { sortedFiles: File[] }) => {
             <Checkbox aria-label={`Select ${file.fileName}`} />
           </div>
           <button
-            aria-pressed={isFavorite} // true if favorited, false otherwise
-            aria-label={`Favorite ${file.fileName}`} // Describes the button’s purpose
-            onClick={() => setIsFavourite(!isFavorite)}
+            aria-pressed={isFavorite(file.id)}
+            aria-label={`Favorite ${file.fileName}`}
+            onClick={() => onToggleFavorite(file.id)}
             className="flex items-center"
           >
-            {isFavorite ? (
+            {isFavorite(file.id) ? (
               <Star className="w-5 fill-yellow-400 text-yellow-400" />
             ) : (
               <Star className="w-5 text-gray-400" />
