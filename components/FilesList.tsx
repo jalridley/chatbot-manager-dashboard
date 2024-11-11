@@ -1,6 +1,8 @@
 import { File } from '@/types/file';
 import { SortKey, SortOrder, SORT_OPTIONS } from '@/hooks/useFileSort';
 import { Checkbox } from './ui/checkbox';
+import { Star } from 'lucide-react';
+import { useState } from 'react';
 
 type FilesListProps = {
   sortedFiles: File[];
@@ -16,6 +18,8 @@ const FilesList = ({
   sortOrder,
   onSort,
 }: FilesListProps) => {
+  const [isFavorite, setIsFavourite] = useState(false);
+
   return (
     <div className="w-full rounded-lg bg-white shadow">
       <table className="w-full border-collapse">
@@ -23,6 +27,7 @@ const FilesList = ({
         <thead className="bg-gray-50">
           <tr>
             {/* element hidden to screen readers */}
+            <th className="w-auto pl-6" aria-hidden="true"></th>
             <th className="w-auto pl-6" aria-hidden="true"></th>
             {SORT_OPTIONS.map((option) => (
               <th
@@ -47,7 +52,23 @@ const FilesList = ({
           {sortedFiles.map((file) => (
             <tr key={file.id}>
               <td className="w-auto pl-6">
-                <Checkbox aria-label={`Select ${file.fileName}`} />
+                <div className="flex items-center">
+                  <Checkbox aria-label={`Select ${file.fileName}`} />
+                </div>
+              </td>
+              <td className="w-auto pl-6">
+                <button
+                  aria-pressed={isFavorite} // true if favorited, false otherwise
+                  aria-label={`Favorite ${file.fileName}`} // Describes the button’s purpose
+                  onClick={() => setIsFavourite(!isFavorite)}
+                  className="flex items-center"
+                >
+                  {isFavorite ? (
+                    <Star className="w-5 fill-yellow-400 text-yellow-400" />
+                  ) : (
+                    <Star className="w-5 text-gray-400" />
+                  )}
+                </button>
               </td>
               <td className="max-w-[300px] overflow-hidden truncate px-6 py-4">
                 {file.fileName}
