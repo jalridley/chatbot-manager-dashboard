@@ -2,23 +2,27 @@ import { File } from '@/types/file';
 import { SortKey, SortOrder, SORT_OPTIONS } from '@/hooks/useFileSort';
 import { Checkbox } from './ui/checkbox';
 import { Star } from 'lucide-react';
-import { useState } from 'react';
+import { useFavorites } from '@/hooks/useFavorites';
 
 type FilesListProps = {
   sortedFiles: File[];
   sortKey: SortKey;
   sortOrder: SortOrder;
   onSort: (key: SortKey) => void;
+  onToggleFavorite: (id: number) => void;
+  isFavorite: (id: number) => boolean;
 };
 
-// TODO: styling in a table format to show list view of files
 const FilesList = ({
   sortedFiles,
   sortKey,
   sortOrder,
   onSort,
+  onToggleFavorite,
+  isFavorite,
 }: FilesListProps) => {
-  const [isFavorite, setIsFavourite] = useState(false);
+  // Access isFavorite from the useFavorites hook
+  // const { isFavorite, toggleFavorite } = useFavorites();
 
   return (
     <div className="w-full rounded-lg bg-white shadow">
@@ -58,12 +62,12 @@ const FilesList = ({
               </td>
               <td className="w-auto pl-6">
                 <button
-                  aria-pressed={isFavorite} // true if favorited, false otherwise
-                  aria-label={`Favorite ${file.fileName}`} // Describes the button’s purpose
-                  onClick={() => setIsFavourite(!isFavorite)}
+                  aria-pressed={isFavorite(file.id)}
+                  aria-label={`Favorite ${file.fileName}`}
+                  onClick={() => onToggleFavorite(file.id)}
                   className="flex items-center"
                 >
-                  {isFavorite ? (
+                  {isFavorite(file.id) ? (
                     <Star className="w-5 fill-yellow-400 text-yellow-400" />
                   ) : (
                     <Star className="w-5 text-gray-400" />
