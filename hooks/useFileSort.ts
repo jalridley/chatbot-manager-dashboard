@@ -11,7 +11,7 @@ export const SORT_OPTIONS = [
   { label: 'Type', value: 'type' },
 ] as const;
 
-export function useFileSort(files: File[]) {
+export const useFileSort = (files: File[]) => {
   const [sortKey, setSortKey] = useState<SortKey>('fileName');
   const [sortOrder, setSortOrder] = useState<SortOrder>('asc');
 
@@ -52,4 +52,4 @@ export function useFileSort(files: File[]) {
     sortOrder,
     toggleSort,
   };
-}
+};
