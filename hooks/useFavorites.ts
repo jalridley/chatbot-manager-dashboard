@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 import { getLocalStorage, setLocalStorage } from '@/utils/localStorage';
 
 export const useFavorites = () => {
-  const initializeFavorites = (): Set<number> => {
-    const storedFavorites = getLocalStorage<number[]>('favorites', []);
-    return new Set(storedFavorites);
-  };
+  // Initialize with empty Set to avoid hydration mismatch
+  const [favorites, setFavorites] = useState<Set<number>>(new Set());
 
-  const [favorites, setFavorites] = useState<Set<number>>(initializeFavorites);
+  // Load favorites from localStorage after mount
+  useEffect(() => {
+    const storedFavorites = getLocalStorage<number[]>('favorites', []);
+    setFavorites(new Set(storedFavorites));
+  }, []);
 
   useEffect(() => {
     setLocalStorage('favorites', Array.from(favorites));
