@@ -20,9 +20,6 @@ const FilesList = ({
   onToggleFavorite,
   isFavorite,
 }: FilesListProps) => {
-  // Access isFavorite from the useFavorites hook
-  // const { isFavorite, toggleFavorite } = useFavorites();
-
   return (
     <div className="w-full rounded-lg bg-white shadow">
       <table className="w-full border-collapse">
