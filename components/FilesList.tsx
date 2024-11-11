@@ -1,7 +1,6 @@
-'use-client';
-
 import { File } from '@/types/file';
 import { SortKey, SortOrder, SORT_OPTIONS } from '@/hooks/useFileSort';
+import { Checkbox } from './ui/checkbox';
 
 type FilesListProps = {
   sortedFiles: File[];
@@ -18,30 +17,48 @@ const FilesList = ({
   onSort,
 }: FilesListProps) => {
   return (
-    <div className="rounded-lg bg-white shadow">
-      <div className="grid grid-cols-4 gap-4 bg-gray-50 px-6 py-3">
-        {SORT_OPTIONS.map((option) => (
-          <button
-            key={option.value}
-            onClick={() => onSort(option.value)}
-            className="flex items-center gap-1 text-left text-xs font-medium uppercase tracking-wider text-gray-500 hover:text-gray-700"
-          >
-            {option.label}
-            {sortKey === option.value &&
-              (sortOrder === 'asc' ? ' (icon-up)' : ' (icon-down)')}
-          </button>
-        ))}
-      </div>
-      <div className="divide-y divide-gray-200">
-        {sortedFiles.map((file) => (
-          <div key={file.id} className="grid grid-cols-4 gap-4 px-6 py-4">
-            <div>{file.fileName}</div>
-            <div>{file.dateModified}</div>
-            <div>{file.size}</div>
-            <div>{file.type}</div>
-          </div>
-        ))}
-      </div>
+    <div className="w-full rounded-lg bg-white shadow">
+      <table className="w-full border-collapse">
+        {/* Table Header */}
+        <thead className="bg-gray-50">
+          <tr>
+            {/* element hidden to screen readers */}
+            <th className="w-auto pl-6" aria-hidden="true"></th>
+            {SORT_OPTIONS.map((option) => (
+              <th
+                key={option.value}
+                className="w-full px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 hover:text-gray-700"
+              >
+                <button
+                  onClick={() => onSort(option.value)}
+                  className="flex items-center gap-1"
+                >
+                  {option.label}
+                  {sortKey === option.value &&
+                    (sortOrder === 'asc' ? ' (icon-up)' : ' (icon-down)')}
+                </button>
+              </th>
+            ))}
+          </tr>
+        </thead>
+
+        {/* Table Body */}
+        <tbody className="divide-y divide-gray-200">
+          {sortedFiles.map((file) => (
+            <tr key={file.id}>
+              <td className="w-auto pl-6">
+                <Checkbox aria-label={`Select ${file.fileName}`} />
+              </td>
+              <td className="max-w-[300px] overflow-hidden truncate px-6 py-4">
+                {file.fileName}
+              </td>
+              <td className="text-nowrap px-6 py-4">{file.dateModified}</td>
+              <td className="text-nowrap px-6 py-4">{file.size}</td>
+              <td className="text-nowrap px-6 py-4">{file.type}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
