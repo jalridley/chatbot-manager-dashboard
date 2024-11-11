@@ -1,3 +1,5 @@
+'use-client';
+
 import { File } from '@/types/file';
 import { SortKey, SortOrder, SORT_OPTIONS } from '@/hooks/useFileSort';
 import { Checkbox } from './ui/checkbox';
