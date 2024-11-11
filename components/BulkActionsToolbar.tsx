@@ -19,7 +19,7 @@ export const BulkActionsToolbar = ({
   onToggleFavorite,
 }: BulkActionsToolbarProps) => {
   return (
-    <div className="flex space-x-6">
+    <div className="flex space-x-6 px-6 py-3">
       <div className="flex items-center space-x-2">
         <Checkbox id="select-all" aria-label="Select all files" />
         <label htmlFor="select-all" className="text-sm font-medium">
