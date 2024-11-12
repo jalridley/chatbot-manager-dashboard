@@ -11,8 +11,6 @@ type FilesListProps = {
   onSort: (key: SortKey) => void;
   onToggleFavorite: (id: number) => void;
   isFavorite: (id: number) => boolean;
-  toggleSelectFile: (fileId: number) => void;
-  isSelected: (fileId: number) => boolean;
 };
 
 const FilesList = ({
