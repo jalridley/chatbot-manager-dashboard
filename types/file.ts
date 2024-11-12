@@ -2,6 +2,6 @@ export interface File {
   id: number;
   fileName: string;
   dateModified: string;
-  size: string;
+  size: number;
   type: string;
 }
