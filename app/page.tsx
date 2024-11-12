@@ -8,7 +8,6 @@ import { useFileSort } from '@/hooks/useFileSort';
 import { useFavorites } from '@/hooks/useFavorites';
 import SortDropdownMenu from '@/components/ui/SortDropdownMenu';
 import BulkActionsDropdown from '@/components/BulkActionsDropdown';
-import { getLocalStorage, setLocalStorage } from '@/utils/localStorage';
 
 export default function Home() {
   const [viewMode, setViewMode] = useState('list');
