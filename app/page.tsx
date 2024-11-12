@@ -6,23 +6,36 @@ import FilesGrid from '@/components/FilesGrid';
 import { useState } from 'react';
 import { useFileSort } from '@/hooks/useFileSort';
 import { useFavorites } from '@/hooks/useFavorites';
-import { useSelectedFiles } from '@/hooks/useSelectedFiles';
 import SortDropdownMenu from '@/components/ui/SortDropdownMenu';
+import BulkActionsDropdown from '@/components/BulkActionsDropdown';
 
 export default function Home() {
   const [view, setView] = useState('list');
   const { sortedFiles, sortKey, sortOrder, toggleSort } = useFileSort(files);
-  const { toggleFavorite, isFavorite } = useFavorites();
-  const { toggleSelectFile, isSelected } = useSelectedFiles();
+  const { toggleFavorite, isFavorite, toggleAllFavorites, isAllFavorite } =
+    useFavorites();
 
   const toggleView = () => {
     setView(view === 'list' ? 'grid' : 'list');
   };
 
+  const fileActions = [
+    { label: 'Favorite All', showCheckmark: isAllFavorite(sortedFiles.length) },
+    { label: 'Delete', showCheckmark: false },
+  ];
+
   return (
     <div>
       <main className="flex w-full items-center justify-center">
         <section className="w-1/2">
+          <BulkActionsDropdown
+            actions={fileActions}
+            onActionSelect={(actionLabel) => {
+              if (actionLabel === 'Favorite All') {
+                toggleAllFavorites(sortedFiles.length);
+              }
+            }}
+          />
           <div className="flex items-center justify-between">
             <button
               className="rounded-xl border bg-gray-200 p-2"
@@ -41,16 +54,12 @@ export default function Home() {
               onSort={toggleSort}
               onToggleFavorite={toggleFavorite}
               isFavorite={isFavorite}
-              isSelected={isSelected}
-              toggleSelectFile={toggleSelectFile}
             />
           ) : (
             <FilesGrid
               sortedFiles={sortedFiles}
               onToggleFavorite={toggleFavorite}
               isFavorite={isFavorite}
-              isSelected={isSelected}
-              toggleSelectFile={toggleSelectFile}
             />
           )}
         </section>
