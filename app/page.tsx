@@ -6,13 +6,14 @@ import FilesGrid from '@/components/FilesGrid';
 import { useState } from 'react';
 import { useFileSort } from '@/hooks/useFileSort';
 import { useFavorites } from '@/hooks/useFavorites';
+import { useSelectedFiles } from '@/hooks/useSelectedFiles';
 import SortDropdownMenu from '@/components/ui/SortDropdownMenu';
 
 export default function Home() {
   const [view, setView] = useState('list');
   const { sortedFiles, sortKey, sortOrder, toggleSort } = useFileSort(files);
-  const { favorites, toggleFavorite, favoritesCount, isFavorite } =
-    useFavorites();
+  const { toggleFavorite, isFavorite } = useFavorites();
+  const { toggleSelectFile, isSelected } = useSelectedFiles();
 
   const toggleView = () => {
     setView(view === 'list' ? 'grid' : 'list');
@@ -40,12 +41,16 @@ export default function Home() {
               onSort={toggleSort}
               onToggleFavorite={toggleFavorite}
               isFavorite={isFavorite}
+              isSelected={isSelected}
+              toggleSelectFile={toggleSelectFile}
             />
           ) : (
             <FilesGrid
               sortedFiles={sortedFiles}
               onToggleFavorite={toggleFavorite}
               isFavorite={isFavorite}
+              isSelected={isSelected}
+              toggleSelectFile={toggleSelectFile}
             />
           )}
         </section>
