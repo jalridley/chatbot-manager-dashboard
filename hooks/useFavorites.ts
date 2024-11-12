@@ -27,11 +27,30 @@ export const useFavorites = () => {
     });
   };
 
+  const toggleAllFavorites = (totalFiles: number) => {
+    setFavorites((prevFavorites) => {
+      // If all files are currently favorites, deselect all
+      if (prevFavorites.size === totalFiles) {
+        return new Set(); // Deselect all
+      } else {
+        // Select all files (create a set of numbers 1 through totalFiles)
+        const allFileIds = new Set<number>();
+        for (let i = 1; i <= totalFiles; i++) {
+          allFileIds.add(i); // Add each file ID to the set (1-based ID)
+        }
+        return allFileIds; // Select all files
+      }
+    });
+  };
+
   const isFavorite = (fileId: number) => favorites.has(fileId);
+  const isAllFavorite = (totalFiles: number) => favorites.size === totalFiles;
 
   return {
     favorites,
     toggleFavorite,
     isFavorite,
+    toggleAllFavorites,
+    isAllFavorite,
   };
 };
