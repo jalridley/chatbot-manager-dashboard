@@ -12,6 +12,8 @@ type FilesListProps = {
   onSort: (key: SortKey) => void;
   onToggleFavorite: (id: number) => void;
   isFavorite: (id: number) => boolean;
+  toggleSelectFile: (fileId: number) => void;
+  isSelected: (fileId: number) => boolean;
 };
 
 const FilesList = ({
@@ -21,6 +23,8 @@ const FilesList = ({
   onSort,
   onToggleFavorite,
   isFavorite,
+  toggleSelectFile,
+  isSelected,
 }: FilesListProps) => {
   return (
     <div className="w-full rounded-lg bg-white shadow">
@@ -55,7 +59,11 @@ const FilesList = ({
             <tr key={file.id}>
               <td className="w-auto pl-6">
                 <div className="flex items-center">
-                  <Checkbox aria-label={`Select ${file.fileName}`} />
+                  <Checkbox
+                    checked={isSelected(file.id)}
+                    aria-label={`Select ${file.fileName}`}
+                    onClick={() => toggleSelectFile(file.id)}
+                  />
                 </div>
               </td>
               <td className="w-auto pl-6">
