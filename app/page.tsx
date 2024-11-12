@@ -3,7 +3,7 @@
 import { files } from '@/data/files';
 import FilesList from '@/components/FilesList';
 import FilesGrid from '@/components/FilesGrid';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useFileSort } from '@/hooks/useFileSort';
 import { useFavorites } from '@/hooks/useFavorites';
 import SortDropdownMenu from '@/components/ui/SortDropdownMenu';
