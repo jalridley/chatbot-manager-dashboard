@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 
 export const useSelectedFiles = () => {
   const [selectedFiles, setSelectedFiles] = useState<Set<number>>(new Set());
@@ -17,10 +17,7 @@ export const useSelectedFiles = () => {
     });
   };
 
-  const isSelected = useCallback(
-    (fileId: number) => selectedFiles.has(fileId),
-    [selectedFiles],
-  );
+  const isSelected = (fileId: number) => selectedFiles.has(fileId);
 
   return {
     selectedFiles,
