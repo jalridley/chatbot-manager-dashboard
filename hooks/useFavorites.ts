@@ -33,6 +33,5 @@ export const useFavorites = () => {
     favorites,
     toggleFavorite,
     isFavorite,
-    favoritesCount: favorites.size,
   };
 };
