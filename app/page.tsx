@@ -3,20 +3,22 @@
 import { files } from '@/data/files';
 import FilesList from '@/components/FilesList';
 import FilesGrid from '@/components/FilesGrid';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useFileSort } from '@/hooks/useFileSort';
 import { useFavorites } from '@/hooks/useFavorites';
 import SortDropdownMenu from '@/components/ui/SortDropdownMenu';
 import BulkActionsDropdown from '@/components/BulkActionsDropdown';
+import { getLocalStorage, setLocalStorage } from '@/utils/localStorage';
 
 export default function Home() {
-  const [view, setView] = useState('list');
+  const [viewMode, setViewMode] = useState('list');
+
   const { sortedFiles, sortKey, sortOrder, toggleSort } = useFileSort(files);
   const { toggleFavorite, isFavorite, toggleAllFavorites, isAllFavorite } =
     useFavorites();
 
   const toggleView = () => {
-    setView(view === 'list' ? 'grid' : 'list');
+    setViewMode(viewMode === 'list' ? 'grid' : 'list');
   };
 
   const fileActions = [
@@ -46,7 +48,7 @@ export default function Home() {
             <SortDropdownMenu sortKey={sortKey} onSort={toggleSort} />
           </div>
 
-          {view === 'list' ? (
+          {viewMode === 'list' ? (
             <FilesList
               sortedFiles={sortedFiles}
               sortKey={sortKey}
