@@ -84,7 +84,7 @@ const FilesList = ({
                 {file.fileName}
               </td>
               <td className="text-nowrap px-6 py-4">{file.dateModified}</td>
-              <td className="text-nowrap px-6 py-4">{file.size}</td>
+              <td className="text-nowrap px-6 py-4">{file.size} KB</td>
               <td className="text-nowrap px-6 py-4">{file.type}</td>
             </tr>
           ))}

@@ -44,7 +44,7 @@ const FilesGrid = ({
           </button>
           <div>{file.fileName}</div>
           <div>{file.dateModified}</div>
-          <div>{file.size}</div>
+          <div>{file.size} KB</div>
           <div>{file.type}</div>
         </div>
       ))}
