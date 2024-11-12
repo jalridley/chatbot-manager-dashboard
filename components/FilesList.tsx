@@ -2,7 +2,6 @@
 
 import { File } from '@/types/file';
 import { SortKey, SortOrder, SORT_OPTIONS } from '@/hooks/useFileSort';
-import { Checkbox } from './ui/checkbox';
 import { Star } from 'lucide-react';
 
 type FilesListProps = {
@@ -23,8 +22,6 @@ const FilesList = ({
   onSort,
   onToggleFavorite,
   isFavorite,
-  toggleSelectFile,
-  isSelected,
 }: FilesListProps) => {
   return (
     <div className="w-full rounded-lg bg-white shadow">
@@ -33,7 +30,6 @@ const FilesList = ({
         <thead className="bg-gray-50">
           <tr>
             {/* element hidden to screen readers */}
-            <th className="w-auto pl-6" aria-hidden="true"></th>
             <th className="w-auto pl-6" aria-hidden="true"></th>
             {SORT_OPTIONS.map((option) => (
               <th
@@ -57,15 +53,6 @@ const FilesList = ({
         <tbody className="divide-y divide-gray-200">
           {sortedFiles.map((file) => (
             <tr key={file.id}>
-              <td className="w-auto pl-6">
-                <div className="flex items-center">
-                  <Checkbox
-                    checked={isSelected(file.id)}
-                    aria-label={`Select ${file.fileName}`}
-                    onClick={() => toggleSelectFile(file.id)}
-                  />
-                </div>
-              </td>
               <td className="w-auto pl-6">
                 <button
                   aria-pressed={isFavorite(file.id)}
