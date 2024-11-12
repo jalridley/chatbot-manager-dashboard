@@ -1,23 +1,18 @@
 'use-client';
 
 import { File } from '@/types/file';
-import { Checkbox } from './ui/checkbox';
 import { Star } from 'lucide-react';
 
 type FilesGridProps = {
   sortedFiles: File[];
   onToggleFavorite: (id: number) => void;
   isFavorite: (id: number) => boolean;
-  toggleSelectFile: (fileId: number) => void;
-  isSelected: (fileId: number) => boolean;
 };
 
 const FilesGrid = ({
   sortedFiles,
   onToggleFavorite,
   isFavorite,
-  toggleSelectFile,
-  isSelected,
 }: FilesGridProps) => {
   return (
     <div className="grid grid-cols-5 gap-4">
