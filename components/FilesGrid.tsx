@@ -8,19 +8,27 @@ type FilesGridProps = {
   sortedFiles: File[];
   onToggleFavorite: (id: number) => void;
   isFavorite: (id: number) => boolean;
+  toggleSelectFile: (fileId: number) => void;
+  isSelected: (fileId: number) => boolean;
 };
 
 const FilesGrid = ({
   sortedFiles,
   onToggleFavorite,
   isFavorite,
+  toggleSelectFile,
+  isSelected,
 }: FilesGridProps) => {
   return (
     <div className="grid grid-cols-5 gap-4">
       {sortedFiles.map((file) => (
         <div className="border p-4" key={file.id}>
           <div className="flex items-center">
-            <Checkbox aria-label={`Select ${file.fileName}`} />
+            <Checkbox
+              checked={isSelected(file.id)}
+              aria-label={`Select ${file.fileName}`}
+              onClick={() => toggleSelectFile(file.id)}
+            />
           </div>
           <button
             aria-pressed={isFavorite(file.id)}
