@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Bot, GalleryVerticalEnd } from 'lucide-react';
+import { Bot, Code, Speech } from 'lucide-react';
 
 import {
   Sidebar,
@@ -65,7 +65,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <a href="#">
-                <div className="flex aspect-square size-12 items-center justify-center rounded-lg bg-teal-400 p-1">
+                <div className="flex aspect-square size-12 items-center justify-center rounded-lg border-2 border-black bg-teal-400 p-1">
                   <Bot className="h-24 w-24" />
                 </div>
                 <div className="flex flex-col gap-0.5 leading-none">
@@ -86,6 +86,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               <SidebarMenuItem key={item.title}>
                 <SidebarMenuButton asChild>
                   <a href={item.url} className="font-bold">
+                    {item.title === 'Implementation' ? (
+                      <Code className="h-8 w-8" />
+                    ) : (
+                      <Speech className="h-8 w-8" />
+                    )}
                     {item.title}
                   </a>
                 </SidebarMenuButton>
