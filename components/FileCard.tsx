@@ -8,32 +8,46 @@ interface FileCardProps {
 }
 
 const FileCard = ({ file, isFavorite, onToggleFavorite }: FileCardProps) => {
+  const renderFileIcon = () => {
+    switch (file.type) {
+      case 'csv':
+        return <FileSpreadsheet className="h-16 w-16 text-red-700" />;
+      case 'text':
+        return <FileText className="h-16 w-16 text-blue-700" />;
+      case 'json':
+        return <FileJson className="h-16 w-16 text-teal-700" />;
+      default:
+        return null;
+    }
+  };
+
   return (
-    <div className="relative flex h-full items-center rounded-md border bg-white p-4 shadow-lg">
+    <article className="relative flex h-full items-center rounded-md border bg-white p-4 shadow-lg">
       {/* File Icon */}
-      <div className="mr-4 flex-shrink-0">
-        {file.type === 'csv' ? (
-          <FileSpreadsheet className="h-16 w-16 text-red-700" />
-        ) : file.type === 'text' ? (
-          <FileText className="h-16 w-16 text-blue-700" />
-        ) : file.type === 'json' ? (
-          <FileJson className="h-16 w-16 text-teal-700" />
-        ) : null}
-      </div>
+      <figure
+        className="mr-4 flex-shrink-0"
+        aria-label={`File type: ${file.type}`}
+      >
+        {renderFileIcon()}
+      </figure>
 
       {/* File Details */}
-      <div className="flex-1 space-y-2 pr-8">
-        <div className="text-md text-wrap font-bold">{file.fileName}</div>
-        <div className="">
-          <div className="text-xs text-gray-500">
+      <section className="flex-1 space-y-2 pr-8">
+        <header>
+          <h2 className="text-wrap font-bold" title={file.fileName}>
+            {file.fileName}
+          </h2>
+        </header>
+        <div>
+          <time className="text-xs text-gray-500" dateTime={file.dateModified}>
             Modified: {file.dateModified}
-          </div>
-          <div className="text-xs text-gray-500">Size: {file.size} KB</div>
-          <div className="text-xs capitalize text-gray-500">
+          </time>
+          <p className="text-xs text-gray-500">Size: {file.size} KB</p>
+          <p className="text-xs capitalize text-gray-500">
             Type: {file.type} Document
-          </div>
+          </p>
         </div>
-      </div>
+      </section>
 
       {/* Favorite Star Icon */}
       <button
@@ -48,7 +62,7 @@ const FileCard = ({ file, isFavorite, onToggleFavorite }: FileCardProps) => {
           <Star className="h-5 w-5 text-gray-400" />
         )}
       </button>
-    </div>
+    </article>
   );
 };
 
