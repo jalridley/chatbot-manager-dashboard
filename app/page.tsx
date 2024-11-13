@@ -44,6 +44,8 @@ export default function Home() {
     { label: 'Delete', showCheckmark: false },
   ];
 
+  const filterOptions = ['All Files', 'Favorites'];
+
   return (
     <div>
       <main className="flex w-full items-center justify-center">
@@ -65,7 +67,7 @@ export default function Home() {
             </button>
 
             <FilterDropdown
-              filterOptions={['All files', 'Favorites']}
+              filterOptions={filterOptions}
               onFilterSelect={handleFilterSelect}
               isDisabled={favorites.size === 0}
             />
