@@ -7,7 +7,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, FileCog } from 'lucide-react';
 
 type Action = {
   label: string;
@@ -27,7 +27,8 @@ const BulkActionsToolbar = ({
     <div>
       <DropdownMenu>
         <DropdownMenuTrigger className="flex items-center gap-2 rounded-md bg-white px-3 py-2 text-sm font-medium shadow">
-          File actions
+          <FileCog className="h-4 w-4" />
+          Actions
           <ChevronDown className="h-4 w-4" />
         </DropdownMenuTrigger>
         <DropdownMenuContent>
