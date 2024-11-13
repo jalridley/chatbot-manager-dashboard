@@ -64,7 +64,7 @@ export default function Home() {
 
             <div className="flex items-center space-x-4">
               <button
-                className="h-9 rounded-md p-2 shadow"
+                className="h-9 rounded-md bg-white p-2 shadow"
                 onClick={toggleView}
               >
                 {viewMode === 'list' ? (
