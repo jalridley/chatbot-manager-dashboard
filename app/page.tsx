@@ -50,8 +50,8 @@ export default function Home() {
 
   return (
     <div>
-      <main className="flex w-full items-center justify-center">
-        <section className="w-1/2">
+      <main className="flex h-screen w-full justify-center">
+        <section className="w-1/2 p-6">
           <div className="flex justify-between py-4">
             <BulkActionsDropdown
               actions={fileActions}
