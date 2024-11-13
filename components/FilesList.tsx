@@ -22,17 +22,17 @@ const FilesList = ({
   isFavorite,
 }: FilesListProps) => {
   return (
-    <div className="w-full rounded-lg bg-white shadow">
-      <table className="w-full border-collapse">
+    <div className="w-full overflow-hidden rounded-md">
+      <table className="w-full border-collapse border-b border-b-gray-200">
         {/* Table Header */}
-        <thead className="bg-gray-50">
+        <thead className="w-full rounded-md bg-gray-200/50">
           <tr>
             {/* element hidden to screen readers */}
-            <th className="w-auto pl-6" aria-hidden="true"></th>
+            <th className="w-auto rounded-l-md pl-6" aria-hidden="true"></th>
             {SORT_OPTIONS.map((option) => (
               <th
                 key={option.value}
-                className="w-full px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 hover:text-gray-700"
+                className="w-full px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-700 last:rounded-r-md hover:text-gray-700"
               >
                 <button
                   onClick={() => onSort(option.value)}
