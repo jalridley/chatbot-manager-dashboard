@@ -52,30 +52,36 @@ export default function Home() {
     <div>
       <main className="flex w-full items-center justify-center">
         <section className="w-1/2">
-          <BulkActionsDropdown
-            actions={fileActions}
-            onActionSelect={(actionLabel) => {
-              if (actionLabel === 'Favorite All') {
-                toggleAllFavorites(filteredFiles.length);
-              }
-            }}
-          />
-          <div className="flex items-center justify-between">
-            <button className="h-10 rounded-md px-3 py-2" onClick={toggleView}>
-              {viewMode === 'list' ? (
-                <LayoutGrid className="h-4 w-4" />
-              ) : (
-                <LayoutList className="h-4 w-4" />
-              )}
-            </button>
-
-            <FilterDropdown
-              filterOptions={filterOptions}
-              onFilterSelect={handleFilterSelect}
-              isDisabled={favorites.size === 0}
+          <div className="flex justify-between py-4">
+            <BulkActionsDropdown
+              actions={fileActions}
+              onActionSelect={(actionLabel) => {
+                if (actionLabel === 'Favorite All') {
+                  toggleAllFavorites(filteredFiles.length);
+                }
+              }}
             />
 
-            <SortDropdownMenu sortKey={sortKey} onSort={toggleSort} />
+            <div className="flex items-center space-x-4">
+              <button
+                className="h-9 rounded-md p-2 shadow"
+                onClick={toggleView}
+              >
+                {viewMode === 'list' ? (
+                  <LayoutGrid className="h-5 w-5" />
+                ) : (
+                  <LayoutList className="h-5 w-5" />
+                )}
+              </button>
+
+              <FilterDropdown
+                filterOptions={filterOptions}
+                onFilterSelect={handleFilterSelect}
+                isDisabled={favorites.size === 0}
+              />
+
+              <SortDropdownMenu sortKey={sortKey} onSort={toggleSort} />
+            </div>
           </div>
 
           {viewMode === 'list' ? (
