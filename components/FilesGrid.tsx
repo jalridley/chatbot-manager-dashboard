@@ -1,7 +1,7 @@
 'use-client';
 
 import { File } from '@/types/file';
-import { Star } from 'lucide-react';
+import { Star, FileSpreadsheet, FileText, FileJson } from 'lucide-react';
 
 type FilesGridProps = {
   files: File[];
@@ -21,15 +21,22 @@ const FilesGrid = ({ files, onToggleFavorite, isFavorite }: FilesGridProps) => {
             className="flex items-center"
           >
             {isFavorite(file.id) ? (
-              <Star className="w-5 fill-yellow-400 text-yellow-400" />
+              <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
             ) : (
-              <Star className="w-5 text-gray-400" />
+              <Star className="h-5 w-5 text-gray-400" />
             )}
+            {file.type === 'csv' ? (
+              <FileSpreadsheet className="mr-1 h-24 w-24 text-red-700" />
+            ) : file.type === 'text' ? (
+              <FileText className="mr-1 h-24 w-24 text-blue-700" />
+            ) : file.type === 'json' ? (
+              <FileJson className="mr-1 h-24 w-24 text-teal-700" />
+            ) : null}
           </button>
           <div>{file.fileName}</div>
-          <div>{file.dateModified}</div>
+          <div>{file.dateModified} </div>
           <div>{file.size} KB</div>
-          <div>{file.type}</div>
+          <div>{file.type} Document</div>
         </div>
       ))}
     </div>
