@@ -11,32 +11,50 @@ type FilesGridProps = {
 
 const FilesGrid = ({ files, onToggleFavorite, isFavorite }: FilesGridProps) => {
   return (
-    <div className="grid grid-cols-5 gap-4">
+    <div className="grid grid-cols-3 items-stretch gap-8">
       {files.map((file) => (
-        <div className="border p-4" key={file.id}>
+        <div
+          key={file.id}
+          className="relative flex h-full items-center rounded-md border bg-white p-4 shadow-lg"
+        >
+          {/* File Icon */}
+          <div className="mr-4 flex-shrink-0">
+            {file.type === 'csv' ? (
+              <FileSpreadsheet className="h-16 w-16 text-red-700" />
+            ) : file.type === 'text' ? (
+              <FileText className="h-16 w-16 text-blue-700" />
+            ) : file.type === 'json' ? (
+              <FileJson className="h-16 w-16 text-teal-700" />
+            ) : null}
+          </div>
+
+          {/* File Details */}
+          <div className="flex-1 space-y-2 pr-8">
+            <div className="text-md text-wrap font-bold">{file.fileName}</div>
+            <div className="">
+              <div className="text-xs text-gray-500">
+                Modified: {file.dateModified}
+              </div>
+              <div className="text-xs text-gray-500">Size: {file.size} KB</div>
+              <div className="text-xs capitalize text-gray-500">
+                Type: {file.type} Document
+              </div>
+            </div>
+          </div>
+
+          {/* Favorite Star Icon */}
           <button
             aria-pressed={isFavorite(file.id)}
             aria-label={`Favorite ${file.fileName}`}
             onClick={() => onToggleFavorite(file.id)}
-            className="flex items-center"
+            className="absolute right-4 top-4"
           >
             {isFavorite(file.id) ? (
               <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
             ) : (
               <Star className="h-5 w-5 text-gray-400" />
             )}
-            {file.type === 'csv' ? (
-              <FileSpreadsheet className="mr-1 h-24 w-24 text-red-700" />
-            ) : file.type === 'text' ? (
-              <FileText className="mr-1 h-24 w-24 text-blue-700" />
-            ) : file.type === 'json' ? (
-              <FileJson className="mr-1 h-24 w-24 text-teal-700" />
-            ) : null}
           </button>
-          <div>{file.fileName}</div>
-          <div>{file.dateModified} </div>
-          <div>{file.size} KB</div>
-          <div>{file.type} Document</div>
         </div>
       ))}
     </div>
