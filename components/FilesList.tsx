@@ -2,7 +2,13 @@
 
 import { File } from '@/types/file';
 import { SortKey, SortOrder, SORT_OPTIONS } from '@/hooks/useFileSort';
-import { Star, ChevronDown } from 'lucide-react';
+import {
+  Star,
+  ChevronDown,
+  FileJson,
+  FileSpreadsheet,
+  FileText,
+} from 'lucide-react';
 
 type FilesListProps = {
   files: File[];
@@ -74,7 +80,18 @@ const FilesList = ({
               </td>
               <td className="text-nowrap px-6 py-4">{file.dateModified}</td>
               <td className="text-nowrap px-6 py-4">{file.size} KB</td>
-              <td className="text-nowrap px-6 py-4">{file.type}</td>
+              <td className="text-nowrap px-6 py-4">
+                <span className="flex items-center">
+                  {file.type === 'csv' ? (
+                    <FileSpreadsheet className="mr-1 h-5 w-5 text-red-700" />
+                  ) : file.type === 'text' ? (
+                    <FileText className="mr-1 h-5 w-5 text-blue-700" />
+                  ) : file.type === 'json' ? (
+                    <FileJson className="mr-1 h-5 w-5 text-teal-700" />
+                  ) : null}
+                  {file.type}
+                </span>
+              </td>
             </tr>
           ))}
         </tbody>
