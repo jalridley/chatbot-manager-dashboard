@@ -55,7 +55,9 @@ export default function RootLayout({
                 <Bot className="h-10 w-10 rounded-full bg-teal-400 p-1.5 ring-2 ring-black" />
               </div>
             </header>
-            <div className="rounded-bl-lg bg-gray-50 text-sm">{children}</div>
+            <main className="flex h-screen w-full justify-center rounded-bl-lg bg-gray-50 text-sm">
+              <section className="w-1/2 p-6">{children}</section>
+            </main>
           </SidebarInset>
         </SidebarProvider>
       </body>

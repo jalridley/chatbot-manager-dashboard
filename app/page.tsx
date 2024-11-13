@@ -49,59 +49,55 @@ export default function Home() {
   const filterOptions = ['All Files', 'Favorites'];
 
   return (
-    <div>
-      <main className="flex h-screen w-full justify-center">
-        <section className="w-1/2 p-6">
-          <div className="flex justify-between py-4">
-            <BulkActionsDropdown
-              actions={fileActions}
-              onActionSelect={(actionLabel) => {
-                if (actionLabel === 'Favorite All') {
-                  toggleAllFavorites(filteredFiles.length);
-                }
-              }}
-            />
+    <div className="w-full">
+      <div className="flex w-full justify-between py-4">
+        <BulkActionsDropdown
+          actions={fileActions}
+          onActionSelect={(actionLabel) => {
+            if (actionLabel === 'Favorite All') {
+              toggleAllFavorites(filteredFiles.length);
+            }
+          }}
+        />
 
-            <div className="flex items-center space-x-4">
-              <button
-                className="h-9 rounded-md bg-white p-2 shadow"
-                onClick={toggleView}
-              >
-                {viewMode === 'list' ? (
-                  <LayoutGrid className="h-5 w-5" />
-                ) : (
-                  <LayoutList className="h-5 w-5" />
-                )}
-              </button>
+        <div className="flex items-center space-x-4">
+          <button
+            className="h-9 rounded-md bg-white p-2 shadow"
+            onClick={toggleView}
+          >
+            {viewMode === 'list' ? (
+              <LayoutGrid className="h-5 w-5" />
+            ) : (
+              <LayoutList className="h-5 w-5" />
+            )}
+          </button>
 
-              <FilterDropdown
-                filterOptions={filterOptions}
-                onFilterSelect={handleFilterSelect}
-                isDisabled={favorites.size === 0}
-              />
+          <FilterDropdown
+            filterOptions={filterOptions}
+            onFilterSelect={handleFilterSelect}
+            isDisabled={favorites.size === 0}
+          />
 
-              <SortDropdownMenu sortKey={sortKey} onSort={toggleSort} />
-            </div>
-          </div>
+          <SortDropdownMenu sortKey={sortKey} onSort={toggleSort} />
+        </div>
+      </div>
 
-          {viewMode === 'list' ? (
-            <FilesList
-              files={filteredFiles}
-              sortKey={sortKey}
-              sortOrder={sortOrder}
-              onSort={toggleSort}
-              onToggleFavorite={toggleFavorite}
-              isFavorite={isFavorite}
-            />
-          ) : (
-            <FilesGrid
-              files={filteredFiles}
-              onToggleFavorite={toggleFavorite}
-              isFavorite={isFavorite}
-            />
-          )}
-        </section>
-      </main>
+      {viewMode === 'list' ? (
+        <FilesList
+          files={filteredFiles}
+          sortKey={sortKey}
+          sortOrder={sortOrder}
+          onSort={toggleSort}
+          onToggleFavorite={toggleFavorite}
+          isFavorite={isFavorite}
+        />
+      ) : (
+        <FilesGrid
+          files={filteredFiles}
+          onToggleFavorite={toggleFavorite}
+          isFavorite={isFavorite}
+        />
+      )}
     </div>
   );
 }
