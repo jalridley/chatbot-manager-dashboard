@@ -31,14 +31,14 @@ export const useFavorites = () => {
     setFavorites((prevFavorites) => {
       // If all files are currently favorites, deselect all
       if (prevFavorites.size === totalFiles) {
-        return new Set(); // Deselect all
+        return new Set();
       } else {
-        // Select all files (create a set of numbers 1 through totalFiles)
+        // Select all files (create a set of numbers 1 through totalFiles - ids start from 1)
         const allFileIds = new Set<number>();
         for (let i = 1; i <= totalFiles; i++) {
-          allFileIds.add(i); // Add each file ID to the set (1-based ID)
+          allFileIds.add(i);
         }
-        return allFileIds; // Select all files
+        return allFileIds;
       }
     });
   };
