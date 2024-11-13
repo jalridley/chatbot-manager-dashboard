@@ -33,11 +33,10 @@ const FileCard = ({ file, isFavorite, onToggleFavorite }: FileCardProps) => {
 
       {/* File Details */}
       <section className="flex-1 space-y-2 pr-8">
-        <header>
-          <h2 className="text-wrap font-bold" title={file.fileName}>
-            {file.fileName}
-          </h2>
-        </header>
+        <h2 className="text-wrap font-bold" title={file.fileName}>
+          {file.fileName}
+        </h2>
+
         <div>
           <time className="text-xs text-gray-500" dateTime={file.dateModified}>
             Modified: {file.dateModified}
