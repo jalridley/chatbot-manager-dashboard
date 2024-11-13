@@ -8,7 +8,7 @@ import {
   DropdownMenuItem,
   DropdownMenuCheckboxItem,
 } from '@/components/ui/dropdown-menu';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Filter } from 'lucide-react';
 
 type FilterDropdownProps = {
   filterOptions: string[];
@@ -32,7 +32,8 @@ const FilterDropdown = ({
     <div>
       <DropdownMenu>
         <DropdownMenuTrigger className="flex items-center gap-2 rounded-md bg-white px-3 py-2 text-sm font-medium shadow">
-          Filter by
+          <Filter className="h-4 w-4" />
+          Filter
           <ChevronDown className="h-4 w-4" />
         </DropdownMenuTrigger>
         <DropdownMenuContent>
