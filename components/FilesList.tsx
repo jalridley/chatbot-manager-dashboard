@@ -2,7 +2,7 @@
 
 import { File } from '@/types/file';
 import { SortKey, SortOrder, SORT_OPTIONS } from '@/hooks/useFileSort';
-import { Star } from 'lucide-react';
+import { Star, ChevronDown } from 'lucide-react';
 
 type FilesListProps = {
   files: File[];
@@ -40,7 +40,11 @@ const FilesList = ({
                 >
                   {option.label}
                   {sortKey === option.value &&
-                    (sortOrder === 'asc' ? ' (icon-up)' : ' (icon-down)')}
+                    (sortOrder === 'asc' ? (
+                      <ChevronDown className="h-4 w-4 rotate-180" />
+                    ) : (
+                      <ChevronDown className="h-4 w-4" />
+                    ))}
                 </button>
               </th>
             ))}
