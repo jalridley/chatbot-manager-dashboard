@@ -5,7 +5,7 @@ import { SortKey, SortOrder, SORT_OPTIONS } from '@/hooks/useFileSort';
 import { Star } from 'lucide-react';
 
 type FilesListProps = {
-  sortedFiles: File[];
+  files: File[];
   sortKey: SortKey;
   sortOrder: SortOrder;
   onSort: (key: SortKey) => void;
@@ -14,7 +14,7 @@ type FilesListProps = {
 };
 
 const FilesList = ({
-  sortedFiles,
+  files,
   sortKey,
   sortOrder,
   onSort,
@@ -49,7 +49,7 @@ const FilesList = ({
 
         {/* Table Body */}
         <tbody className="divide-y divide-gray-200">
-          {sortedFiles.map((file) => (
+          {files.map((file) => (
             <tr key={file.id}>
               <td className="w-auto pl-6">
                 <button

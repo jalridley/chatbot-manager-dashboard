@@ -4,19 +4,15 @@ import { File } from '@/types/file';
 import { Star } from 'lucide-react';
 
 type FilesGridProps = {
-  sortedFiles: File[];
+  files: File[];
   onToggleFavorite: (id: number) => void;
   isFavorite: (id: number) => boolean;
 };
 
-const FilesGrid = ({
-  sortedFiles,
-  onToggleFavorite,
-  isFavorite,
-}: FilesGridProps) => {
+const FilesGrid = ({ files, onToggleFavorite, isFavorite }: FilesGridProps) => {
   return (
     <div className="grid grid-cols-5 gap-4">
-      {sortedFiles.map((file) => (
+      {files.map((file) => (
         <div className="border p-4" key={file.id}>
           <button
             aria-pressed={isFavorite(file.id)}

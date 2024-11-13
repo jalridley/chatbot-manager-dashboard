@@ -75,7 +75,7 @@ export default function Home() {
 
           {viewMode === 'list' ? (
             <FilesList
-              sortedFiles={filteredFiles}
+              files={filteredFiles}
               sortKey={sortKey}
               sortOrder={sortOrder}
               onSort={toggleSort}
@@ -84,7 +84,7 @@ export default function Home() {
             />
           ) : (
             <FilesGrid
-              sortedFiles={sortedFiles}
+              files={filteredFiles}
               onToggleFavorite={toggleFavorite}
               isFavorite={isFavorite}
             />
