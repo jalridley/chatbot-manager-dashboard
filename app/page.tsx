@@ -9,6 +9,8 @@ import { useFavorites } from '@/hooks/useFavorites';
 import SortDropdownMenu from '@/components/ui/SortDropdownMenu';
 import BulkActionsDropdown from '@/components/BulkActionsDropdown';
 import FilterDropdown from '@/components/FilterDropdown';
+import { LayoutGrid, LayoutList } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 export default function Home() {
   const [viewMode, setViewMode] = useState('list');
@@ -59,11 +61,12 @@ export default function Home() {
             }}
           />
           <div className="flex items-center justify-between">
-            <button
-              className="rounded-xl border bg-gray-200 p-2"
-              onClick={toggleView}
-            >
-              Toggle View
+            <button className="h-10 rounded-md px-3 py-2" onClick={toggleView}>
+              {viewMode === 'list' ? (
+                <LayoutGrid className="h-4 w-4" />
+              ) : (
+                <LayoutList className="h-4 w-4" />
+              )}
             </button>
 
             <FilterDropdown
