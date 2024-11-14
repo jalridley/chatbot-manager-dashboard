@@ -39,7 +39,7 @@ export default function RootLayout({
         >
           <AppSidebar />
           <SidebarInset className="bg-black md:py-2">
-            <header className="h-14 shrink-0 items-center gap-2 bg-gray-50 px-4 pt-2 md:h-16 md:rounded-tl-lg">
+            <header className="h-14 shrink-0 items-center gap-2 border-b-2 bg-gray-50 p-2 md:h-16 md:rounded-tl-lg lg:border-none">
               <div className="flex justify-between">
                 <div>
                   <div className="flex">
