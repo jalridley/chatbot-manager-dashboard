@@ -55,7 +55,7 @@ export default function RootLayout({
                 <Bot className="h-8 w-8 rounded-full bg-teal-400 p-1.5 ring-2 ring-black md:h-10 md:w-10" />
               </div>
             </header>
-            <main className="flex min-h-screen w-full justify-center rounded-bl-lg bg-gray-50 pb-16 text-sm">
+            <main className="flex min-h-screen w-full justify-center rounded-bl-lg bg-gray-50 pb-16 text-sm lg:min-h-[calc(100vh-5rem)]">
               <section className="w-full p-2 lg:p-6 xl:w-5/6 2xl:w-1/2">
                 {children}
               </section>
