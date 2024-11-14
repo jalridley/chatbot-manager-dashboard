@@ -20,7 +20,7 @@ const SortDropdownMenu = ({ sortKey, onSort }: SortDropdownProps) => {
     <DropdownMenu>
       <DropdownMenuTrigger className="flex items-center gap-2 rounded-md bg-white px-3 py-2 text-sm font-medium shadow">
         <ArrowDownUp className="h-4 w-4" />
-        Sort
+        <span className="hidden md:block">Sort</span>
         <ChevronDown className="h-4 w-4" />
       </DropdownMenuTrigger>
       <DropdownMenuContent>

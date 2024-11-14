@@ -33,7 +33,7 @@ const FilterDropdown = ({
       <DropdownMenu>
         <DropdownMenuTrigger className="flex items-center gap-2 rounded-md bg-white px-3 py-2 text-sm font-medium shadow">
           <Filter className="h-4 w-4" />
-          Filter
+          <span className="hidden md:block">Filter</span>
           <ChevronDown className="h-4 w-4" />
         </DropdownMenuTrigger>
         <DropdownMenuContent>

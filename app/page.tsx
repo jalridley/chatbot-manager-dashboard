@@ -49,7 +49,7 @@ export default function Home() {
 
   return (
     <div className="w-full">
-      <div className="flex w-full justify-between py-4">
+      <div className="flex w-full justify-between pb-2 lg:justify-between lg:py-4">
         <BulkActionsDropdown
           actions={fileActions}
           onActionSelect={(actionLabel) => {
@@ -59,9 +59,9 @@ export default function Home() {
           }}
         />
 
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-2 lg:space-x-4">
           <button
-            className="h-9 rounded-md bg-white p-2 shadow"
+            className="h-8 rounded-md bg-white p-2 shadow md:h-9"
             onClick={toggleView}
           >
             {viewMode === 'list' ? (

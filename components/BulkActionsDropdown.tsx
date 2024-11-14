@@ -28,7 +28,7 @@ const BulkActionsToolbar = ({
       <DropdownMenu>
         <DropdownMenuTrigger className="flex items-center gap-2 rounded-md bg-white px-3 py-2 text-sm font-medium shadow">
           <FileCog className="h-4 w-4" />
-          Actions
+          <span className="hidden md:block">Actions</span>
           <ChevronDown className="h-4 w-4" />
         </DropdownMenuTrigger>
         <DropdownMenuContent>
