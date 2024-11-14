@@ -30,26 +30,11 @@ const data = {
     },
     {
       title: 'Discussion',
-      url: '#',
+      url: '/discussion',
       items: [
         {
-          title: 'AI Influence',
-          url: '#',
-          isActive: false,
-        },
-        {
-          title: 'Design and Interaction Patterns',
-          url: '#',
-          isActive: false,
-        },
-        {
-          title: 'Opportunities and Challenges',
-          url: '#',
-          isActive: false,
-        },
-        {
-          title: 'Implications and Directions',
-          url: '#',
+          title: 'Impact of AI on UX/UI Design',
+          url: '/discussion',
           isActive: false,
         },
       ],
