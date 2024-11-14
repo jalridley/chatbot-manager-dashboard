@@ -42,7 +42,6 @@ export default function Home() {
       label: 'Favorite All',
       showCheckmark: isAllFavorite(filteredFiles.length),
     },
-    { label: 'Delete', showCheckmark: false },
   ];
 
   const filterOptions = ['All Files', 'Favorites'];
@@ -74,7 +73,6 @@ export default function Home() {
           <FilterDropdown
             filterOptions={filterOptions}
             onFilterSelect={handleFilterSelect}
-            isDisabled={favorites.size === 0}
           />
 
           <SortDropdownMenu sortKey={sortKey} onSort={toggleSort} />

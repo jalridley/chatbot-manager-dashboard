@@ -19,7 +19,6 @@ type FilterDropdownProps = {
 const FilterDropdown = ({
   filterOptions,
   onFilterSelect,
-  isDisabled,
 }: FilterDropdownProps) => {
   const [selectedFilter, setSelectedFilter] = useState(filterOptions[0] || '');
 
@@ -38,11 +37,7 @@ const FilterDropdown = ({
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-screen rounded-none md:w-auto md:rounded-md">
           {filterOptions.map((option) => (
-            <DropdownMenuItem
-              key={option}
-              onClick={() => handleSelect(option)}
-              disabled={isDisabled}
-            >
+            <DropdownMenuItem key={option} onClick={() => handleSelect(option)}>
               <DropdownMenuCheckboxItem checked={selectedFilter === option}>
                 {option}
               </DropdownMenuCheckboxItem>
