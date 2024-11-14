@@ -23,7 +23,7 @@ const SortDropdownMenu = ({ sortKey, onSort }: SortDropdownProps) => {
         <span className="hidden md:block">Sort</span>
         <ChevronDown className="h-4 w-4" />
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
+      <DropdownMenuContent className="w-screen rounded-none md:w-auto md:rounded-md">
         {SORT_OPTIONS.map((option) => (
           <DropdownMenuItem
             key={option.value}

@@ -31,7 +31,7 @@ const BulkActionsToolbar = ({
           <span className="hidden md:block">Actions</span>
           <ChevronDown className="h-4 w-4" />
         </DropdownMenuTrigger>
-        <DropdownMenuContent>
+        <DropdownMenuContent className="w-screen rounded-none md:w-auto md:rounded-md">
           {actions.map((action) => (
             <DropdownMenuItem
               key={action.label}

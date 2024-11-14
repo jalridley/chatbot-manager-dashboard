@@ -36,7 +36,7 @@ const FilterDropdown = ({
           <span className="hidden md:block">Filter</span>
           <ChevronDown className="h-4 w-4" />
         </DropdownMenuTrigger>
-        <DropdownMenuContent>
+        <DropdownMenuContent className="w-screen rounded-none md:w-auto md:rounded-md">
           {filterOptions.map((option) => (
             <DropdownMenuItem
               key={option}
