@@ -18,7 +18,7 @@ export const topics: Topic[] = [
         text: [
           'Overreliance: Potential for diminished human connection.',
           'Privacy: The feeling of being watched and surveilled from data collection.',
-          'The unknown: Long-term effects of AI on society and individuals.',
+          'The unknown: Long-term effects of AI on us humans.',
         ],
       },
     ],
@@ -45,7 +45,7 @@ export const topics: Topic[] = [
         text: [
           'Learning Curve: Difficult for non-technical users.',
           'Generic Outcomes: Designs become less original and creative.',
-          'Copyright: Models trained on artists, designer, writer’s works.',
+          "Copyright: Models trained on artists', designers', writers' works.",
         ],
       },
     ],
@@ -89,9 +89,10 @@ export const topics: Topic[] = [
       {
         subheader: 'The Good:',
         text: [
-          'Success Metrics: Surveyed user feedback and KPIs like engagement rates, task completion times, and user retention',
-          'Model Accuracy: Regularity assess the accuracy of AI models in making predictions or recommendations.',
+          'Success Metrics: Surveyed user feedback and KPIs like engagement rates, task completion times, and user retentio.',
+          'Model Accuracy: Regularly assess the accuracy of AI models in making predictions or recommendations.',
           'Ethical Guidelines: Ensuring and monitoring responsible AI development and use.',
+          'Task Efficiency and Accuracy: Tracking how AI impacts task speed, accuracy.',
         ],
       },
       {
