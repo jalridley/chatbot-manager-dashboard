@@ -17,9 +17,8 @@ const geistSans = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'Chatbot Content Manager Dashboard',
-  description:
-    'Interview challenge to create a chatbot content manger dashboard',
+  title: 'ChatterBoxer',
+  description: 'ChatterBoxer is a chatbot content manger dashboard',
 };
 
 export default function RootLayout({
