@@ -55,7 +55,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 </div>
                 <div className="flex flex-col gap-0.5 leading-none">
                   <span className="text-lg font-bold tracking-wide">
-                    Chatter Boxer
+                    ChatterBoxer
                   </span>
                   <span className="font-bold tracking-widest">Manager</span>
                 </div>
