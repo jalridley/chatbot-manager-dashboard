@@ -56,7 +56,9 @@ export default function RootLayout({
               </div>
             </header>
             <main className="flex min-h-screen w-full justify-center rounded-bl-lg bg-gray-50 pb-16 text-sm">
-              <section className="w-full p-6 xl:w-1/2">{children}</section>
+              <section className="w-full p-6 xl:w-5/6 2xl:w-1/2">
+                {children}
+              </section>
             </main>
           </SidebarInset>
         </SidebarProvider>
