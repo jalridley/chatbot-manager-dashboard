@@ -38,8 +38,8 @@ export default function RootLayout({
           }
         >
           <AppSidebar />
-          <SidebarInset className="bg-black py-2">
-            <header className="h-16 shrink-0 items-center gap-2 rounded-tl-lg bg-gray-50 px-4 pt-2">
+          <SidebarInset className="bg-black md:py-2">
+            <header className="h-14 shrink-0 items-center gap-2 bg-gray-50 px-4 pt-2 md:h-16 md:rounded-tl-lg">
               <div className="flex justify-between">
                 <div>
                   <div className="flex">
@@ -52,11 +52,11 @@ export default function RootLayout({
                   </div>
                   <SidebarTrigger className="-ml-1 size-8" />
                 </div>
-                <Bot className="h-10 w-10 rounded-full bg-teal-400 p-1.5 ring-2 ring-black" />
+                <Bot className="h-8 w-8 rounded-full bg-teal-400 p-1.5 ring-2 ring-black md:h-10 md:w-10" />
               </div>
             </header>
             <main className="flex min-h-screen w-full justify-center rounded-bl-lg bg-gray-50 pb-16 text-sm">
-              <section className="w-full p-6 xl:w-5/6 2xl:w-1/2">
+              <section className="w-full p-2 lg:p-6 xl:w-5/6 2xl:w-1/2">
                 {children}
               </section>
             </main>
