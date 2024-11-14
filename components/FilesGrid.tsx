@@ -11,7 +11,7 @@ type FilesGridProps = {
 
 const FilesGrid = ({ files, onToggleFavorite, isFavorite }: FilesGridProps) => {
   return (
-    <div className="grid grid-cols-3 items-stretch gap-8">
+    <div className="grid grid-cols-1 items-stretch gap-8 md:grid-cols-2 xl:grid-cols-3">
       {files.map((file) => (
         <div key={file.id}>
           <FileCard

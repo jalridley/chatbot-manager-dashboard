@@ -22,18 +22,13 @@ const FileCard = ({ file, isFavorite, onToggleFavorite }: FileCardProps) => {
   };
 
   return (
-    <article className="relative flex h-full items-center rounded-md border bg-white p-4 shadow-lg">
+    <article className="relative grid h-full grid-cols-[auto_1fr] items-center gap-4 rounded-md border bg-white p-4 shadow-lg">
       {/* File Icon */}
-      <figure
-        className="mr-4 flex-shrink-0"
-        aria-label={`File type: ${file.type}`}
-      >
-        {renderFileIcon()}
-      </figure>
+      <figure aria-label={`File type: ${file.type}`}>{renderFileIcon()}</figure>
 
       {/* File Details */}
-      <section className="flex-1 space-y-2 pr-8">
-        <h2 className="text-wrap font-bold" title={file.fileName}>
+      <section className="space-y-2">
+        <h2 className="text-wrap pr-6 font-bold" title={file.fileName}>
           {file.fileName}
         </h2>
 
