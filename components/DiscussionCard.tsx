@@ -1,19 +1,5 @@
 import Image from 'next/image';
-
-interface Content {
-  subheader: string;
-  text: string[];
-}
-
-interface Topic {
-  title: string;
-  question: string;
-  content: Content[];
-  imageUrl: string;
-  altText: string;
-  width: number;
-  height: number;
-}
+import { Topic } from '@/types/topic';
 
 interface DiscussionCardProps {
   topic: Topic;
