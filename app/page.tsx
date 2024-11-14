@@ -6,7 +6,7 @@ import FilesGrid from '@/components/FilesGrid';
 import { useState } from 'react';
 import { useFileSort } from '@/hooks/useFileSort';
 import { useFavorites } from '@/hooks/useFavorites';
-import SortDropdownMenu from '@/components/ui/SortDropdownMenu';
+import SortDropdownMenu from '@/components/SortDropdownMenu';
 import BulkActionsDropdown from '@/components/BulkActionsDropdown';
 import FilterDropdown from '@/components/FilterDropdown';
 import { LayoutGrid, LayoutList } from 'lucide-react';
