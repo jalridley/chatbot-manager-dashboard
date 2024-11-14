@@ -10,7 +10,6 @@ import SortDropdownMenu from '@/components/ui/SortDropdownMenu';
 import BulkActionsDropdown from '@/components/BulkActionsDropdown';
 import FilterDropdown from '@/components/FilterDropdown';
 import { LayoutGrid, LayoutList } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 export default function Home() {
   const [viewMode, setViewMode] = useState('list');
