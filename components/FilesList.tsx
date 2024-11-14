@@ -31,7 +31,7 @@ const FilesList = ({
     <div className="w-full overflow-hidden rounded-md">
       <table className="w-full border-collapse border-b border-b-gray-200">
         {/* Table Header */}
-        <thead className="w-full rounded-md bg-gray-200/50">
+        <thead className="hidden w-full rounded-md bg-gray-200/50 md:table-header-group">
           <tr>
             {/* element hidden to screen readers */}
             <th className="w-auto rounded-l-md pl-6" aria-hidden="true"></th>
@@ -75,11 +75,15 @@ const FilesList = ({
                   )}
                 </button>
               </td>
-              <td className="max-w-[300px] overflow-hidden truncate px-6 py-4">
+              <td className="max-w-[200px] overflow-hidden truncate px-6 py-4 sm:max-w-[300px]">
                 {file.fileName}
               </td>
-              <td className="text-nowrap px-6 py-4">{file.dateModified}</td>
-              <td className="text-nowrap px-6 py-4">{file.size} KB</td>
+              <td className="hidden text-nowrap px-6 py-4 md:table-cell">
+                {file.dateModified}
+              </td>
+              <td className="hidden text-nowrap px-6 py-4 md:table-cell">
+                {file.size} KB
+              </td>
               <td className="text-nowrap px-6 py-4">
                 <span className="flex items-center">
                   {file.type === 'csv' ? (
